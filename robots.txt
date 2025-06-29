@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://factorsphere-lander.pages.dev/sitemap.xml
