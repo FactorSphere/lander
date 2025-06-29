@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FactorSphere - Democratizing Journal Rankings</title>
+    <meta name="description" content="Open-source, transparent, and community-driven journal metrics that empower researchers worldwide. Discover the future of academic publishing." />
+    <meta name="author" content="FactorSphere" />
+    <meta name="keywords" content="journal rankings, impact factor, academic research, open source, transparent metrics, scientific publishing" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://factorsphere.github.io/lander/" />
+    <meta property="og:title" content="FactorSphere - Democratizing Journal Rankings" />
+    <meta property="og:description" content="Open-source, transparent, and community-driven journal metrics that empower researchers worldwide." />
+    <meta property="og:image" content="https://factorsphere.github.io/lander/img/tehe.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://factorsphere.github.io/lander/" />
+    <meta property="twitter:title" content="FactorSphere - Democratizing Journal Rankings" />
+    <meta property="twitter:description" content="Open-source, transparent, and community-driven journal metrics that empower researchers worldwide." />
+    <meta property="twitter:image" content="https://factorsphere.github.io/lander/img/tehe.png" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/img//favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Theme -->
+    <script>
+      // Prevent flash of wrong theme
+      (function() {
+        const theme = localStorage.getItem('factorsphere-theme') || 'dark';
+        if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+
+  <body class="min-h-screen bg-background text-foreground overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-opacity-20" style="border-color: var(--border);">
+      <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 0;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="/img/logo_cr.png" alt="FactorSphere Logo" style="width:2.2rem;height:2.2rem;border-radius:50%;vertical-align:middle;">
+            <span style="font-size: 1.5rem; font-weight: 700;" class="gradient-text">FactorSphere</span>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="#problem" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Problem</a>
+            <a href="#solution" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Solution</a>
+            <a href="#features" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Features</a>
+            <a href="#technology" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Tech</a>
+            
+            <button id="theme-toggle" class="btn" style="padding: 0.5rem; background: transparent; border: 1px solid var(--border);">
+              <span id="theme-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              </span>
+            </button>
+            
+            <a href="https://factorsphere.github.io/core" target="_blank" class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem;">
+              Launch App
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; background: linear-gradient(135deg, var(--background), var(--macchiato-surface0));" class="bg-grid-pattern">
+      <canvas id="hero-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.6; pointer-events: none;"></canvas>
+      
+      <div class="container" style="position: relative; z-index: 10; text-align: center;">
+        <div class="animate-on-scroll">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(114, 135, 253, 0.2); color: var(--latte-lavender); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; margin-bottom: 2rem;" class="glass-effect">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/></svg>
+            <span>Democratizing Academic Research</span>
+          </div>
+          
+          <div style="display: flex; justify-content: center; margin-bottom: 1.2rem;">
+            <img src="/img/owl.png" alt="Owl Mascot" style="width:3.5rem;height:3.5rem;">
+          </div>
+          
+          <h1 style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.1;" class="gradient-text">
+            The Future of<br>
+            <span style="color: var(--primary);">Journal Rankings</span>
+          </h1>
+          
+          <p style="font-size: clamp(1.125rem, 4vw, 1.5rem); color: var(--latte-subtext0); margin-bottom: 2rem; max-width: 48rem; margin-left: auto; margin-right: auto; line-height: 1.6;">
+            Open-source, transparent, and community-driven journal metrics that empower researchers worldwide
+          </p>
+          
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 3rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.5rem 1rem; border-radius: 2rem;" class="glass-effect">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <span style="font-weight: 500;">Smart Search</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.5rem 1rem; border-radius: 2rem;" class="glass-effect">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+              <span style="font-weight: 500;">Open Data</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.5rem 1rem; border-radius: 2rem;" class="glass-effect">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/></svg>
+              <span style="font-weight: 500;">AI Powered</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 4rem;">
+            <a href="https://factorsphere.github.io/core" target="_blank" class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1.125rem;">
+              Explore FactorSphere
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <button onclick="scrollToSection('features')" class="btn btn-outline" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1.125rem;">
+              Learn More
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 64rem; margin: 0 auto;">
+            <div style="text-align: center; padding: 1.5rem; border-radius: 1rem;" class="glass-effect">
+              <div style="font-size: 1.875rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">4,000+</div>
+              <div style="color: var(--latte-subtext0);">Journals Indexed</div>
+            </div>
+            <div style="text-align: center; padding: 1.5rem; border-radius: 1rem;" class="glass-effect">
+              <div style="font-size: 1.875rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">AI-Powered</div>
+              <div style="color: var(--latte-subtext0);">Smart Recommendations</div>
+            </div>
+            <div style="text-align: center; padding: 1.5rem; border-radius: 1rem;" class="glass-effect">
+              <div style="font-size: 1.875rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">100%</div>
+              <div style="color: var(--latte-subtext0);">Open Source</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
+        <button onclick="scrollToSection('problem')" style="color: var(--latte-subtext0); background: none; border: none; cursor: pointer; transition: color 0.3s ease;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg);"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" style="padding: 6rem 0; background: linear-gradient(180deg, var(--macchiato-surface0), var(--macchiato-surface1)); position: relative; overflow: hidden;" class="bg-grid-pattern">
+      <div class="container" style="position: relative;">
+        <div style="text-align: center; margin-bottom: 5rem;">
+          <h2 class="animate-on-scroll gradient-text" style="font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; margin-bottom: 1.5rem;">
+            The Academic Crisis
+          </h2>
+          <p class="animate-on-scroll" style="font-size: 1.25rem; color: var(--latte-subtext0); max-width: 48rem; margin: 0 auto; line-height: 1.6;">
+            The current journal ranking system is broken. Researchers worldwide struggle with 
+            opaque, expensive, and biased metrics that hinder scientific progress.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+          <div class="animate-on-scroll glass-effect problem-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(210, 15, 57, 0.2);">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(210, 15, 57, 0.2), rgba(230, 69, 83, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="m7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Closed Source Rankings</h3>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Traditional journal rankings are hidden behind paywalls and proprietary algorithms, making them inaccessible to many researchers.</p>
+          </div>
+
+          <div class="animate-on-scroll glass-effect problem-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(210, 15, 57, 0.2);">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(210, 15, 57, 0.2), rgba(230, 69, 83, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="m12 17.02.01 0"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Lack of Transparency</h3>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">How are impact factors calculated? What criteria are used? These questions remain unanswered in traditional systems.</p>
+          </div>
+
+          <div class="animate-on-scroll glass-effect problem-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(210, 15, 57, 0.2);">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(210, 15, 57, 0.2), rgba(230, 69, 83, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Expensive Access</h3>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Many researchers, especially from developing countries, cannot afford expensive subscriptions to ranking databases.</p>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll glass-effect" style="text-align: center; background: linear-gradient(135deg, rgba(210, 15, 57, 0.1), rgba(230, 69, 83, 0.1)); border-radius: 2rem; padding: 3rem;">
+          <h3 style="font-size: 1.875rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">
+            It's Time for Change
+          </h3>
+          <p style="font-size: 1.25rem; color: var(--latte-subtext0); max-width: 32rem; margin: 0 auto;">
+            The research community deserves better. We need transparent, accessible, 
+            and community-driven journal metrics that serve science, not profit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" style="padding: 6rem 0; background: linear-gradient(180deg, var(--background), var(--macchiato-surface0)); position: relative; overflow: hidden;">
+      <div class="container" style="position: relative;">
+        <div style="text-align: center; margin-bottom: 5rem;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(64, 160, 43, 0.2); color: var(--latte-green); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; margin-bottom: 1.5rem;" class="glass-effect">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14C15 12.8954 15 11.1046 15 10C15 6.68629 12.3137 4 9 4C5.68629 4 3 6.68629 3 10C3 11.1046 3 12.8954 3 14"/><path d="M9 18H15"/><path d="M10 22H14"/></svg>
+            <span>The Solution</span>
+          </div>
+          
+          <h2 class="animate-on-scroll gradient-text" style="font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; margin-bottom: 1.5rem;">
+            Introducing FactorSphere
+          </h2>
+          
+          <p class="animate-on-scroll" style="font-size: 1.25rem; color: var(--latte-subtext0); max-width: 48rem; margin: 0 auto; line-height: 1.6;">
+            A revolutionary platform that democratizes journal rankings through transparency, 
+            accessibility, and community collaboration.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <div class="animate-on-scroll glass-effect solution-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(64, 160, 43, 0.2), rgba(23, 146, 153, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Complete Transparency</h3>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Every calculation, every data source, every methodology is open and verifiable. No black boxes.</p>
+          </div>
+
+          <div class="animate-on-scroll glass-effect solution-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(30, 102, 245, 0.2), rgba(32, 159, 181, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Universal Access</h3>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Free for everyone, everywhere. No subscriptions, no paywalls, no geographical restrictions.</p>
+          </div>
+
+          <div class="animate-on-scroll glass-effect solution-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(234, 118, 203, 0.2), rgba(136, 57, 239, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Community Driven</h3>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Built with researchers, for researchers. Your insights and contributions shape the platform.</p>
+          </div>
+
+          <div class="animate-on-scroll glass-effect solution-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(114, 135, 253, 0.2), rgba(30, 102, 245, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">AI Enhanced</h3>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Smart recommendations powered by advanced AI to help you find the perfect journal for your research.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" style="padding: 6rem 0; background: linear-gradient(180deg, var(--macchiato-surface1), var(--macchiato-surface0)); position: relative; overflow: hidden;">
+      <div class="container" style="position: relative;">
+        <div style="text-align: center; margin-bottom: 5rem;">
+          <h2 class="animate-on-scroll gradient-text" style="font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; margin-bottom: 1.5rem;">
+            Powerful Features
+          </h2>
+          <p class="animate-on-scroll" style="font-size: 1.25rem; color: var(--latte-subtext0); max-width: 48rem; margin: 0 auto; line-height: 1.6;">
+            Everything you need to make informed decisions about journal selection and publication strategy.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+          <div class="animate-on-scroll glass-effect feature-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(172, 176, 190, 0.3);">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(30, 102, 245, 0.2), rgba(114, 135, 253, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Smart Search</h4>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Instant journal search with advanced filtering by field, impact factor, and more.</p>
+          </div>
+
+          <div class="animate-on-scroll glass-effect feature-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(172, 176, 190, 0.3);">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(30, 102, 245, 0.2), rgba(114, 135, 253, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+            </div>
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">AI Recommendations</h4>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Get personalized journal suggestions powered by semantic search and embeddings.</p>
+          </div>
+
+          <div class="animate-on-scroll glass-effect feature-card" style="height: 100%; background: var(--background); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(172, 176, 190, 0.3);">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(30, 102, 245, 0.2), rgba(114, 135, 253, 0.2)); border-radius: 0.75rem; margin-bottom: 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+            </div>
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">Comprehensive Metrics</h4>
+            <p style="color: var(--latte-subtext0); line-height: 1.6;">Impact factors, SJR rankings, H-index, and citation analytics all in one place.</p>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll glass-effect" style="text-align: center; background: linear-gradient(135deg, rgba(30, 102, 245, 0.1), rgba(114, 135, 253, 0.1)); border-radius: 2rem; padding: 3rem;">
+          <h3 style="font-size: 1.875rem; font-weight: 700; color: var(--foreground); margin-bottom: 1rem;">
+            Ready to Experience the Future?
+          </h3>
+          <p style="font-size: 1.25rem; color: var(--latte-subtext0); max-width: 32rem; margin: 0 auto 2rem;">
+            Join thousands of researchers who have already discovered the power of transparent, 
+            community-driven journal metrics.
+          </p>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+            <a href="https://factorsphere.github.io/core" target="_blank" class="btn btn-primary">
+              Launch FactorSphere
+            </a>
+            <a href="https://github.com/FactorSphere/core" target="_blank" class="btn btn-outline">
+              View Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" style="padding: 6rem 0; background: linear-gradient(180deg, var(--background), var(--macchiato-surface0)); position: relative; overflow: hidden;">
+      <div class="container" style="position: relative;">
+        <div style="text-align: center; margin-bottom: 5rem;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(136, 57, 239, 0.2); color: var(--latte-mauve); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; margin-bottom: 1.5rem;" class="glass-effect">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg>
+            <span>Built with Modern Tech</span>
+          </div>
+          
+          <h2 class="animate-on-scroll gradient-text" style="font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; margin-bottom: 1.5rem;">
+            Cutting-Edge Architecture
+          </h2>
+          
+          <p class="animate-on-scroll" style="font-size: 1.25rem; color: var(--latte-subtext0); max-width: 48rem; margin: 0 auto; line-height: 1.6;">
+            FactorSphere leverages the latest technologies to deliver unparalleled performance, 
+            reliability, and user experience.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll glass-effect system-architecture-card" style="border-radius: 2rem; padding: 3rem; margin-bottom: 5rem;">
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--foreground); margin-bottom: 2rem; text-align: center;">
+            System Architecture
+          </h3>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div style="text-align: center;">
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(30, 102, 245, 0.2), rgba(32, 159, 181, 0.2)); border-radius: 0.75rem; margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h4 style="font-size: 1.125rem; font-weight: 600; color: var(--foreground); margin-bottom: 0.5rem;">Frontend</h4>
+              <p style="color: var(--latte-subtext0); font-size: 0.875rem;">Pure JavaScript application with modern CSS and responsive design</p>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(64, 160, 43, 0.2), rgba(23, 146, 153, 0.2)); border-radius: 0.75rem; margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+              </div>
+              <h4 style="font-size: 1.125rem; font-weight: 600; color: var(--foreground); margin-bottom: 0.5rem;">Backend</h4>
+              <p style="color: var(--latte-subtext0); font-size: 0.875rem;">Serverless architecture with Cloudflare Workers for global edge computing</p>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background: linear-gradient(135deg, rgba(136, 57, 239, 0.2), rgba(114, 135, 253, 0.2)); border-radius: 0.75rem; margin-bottom: 1rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/></svg>
+              </div>
+              <h4 style="font-size: 1.125rem; font-weight: 600; color: var(--foreground); margin-bottom: 0.5rem;">AI Engine</h4>
+              <p style="color: var(--latte-subtext0); font-size: 0.875rem;">Vector database with OpenAI embeddings for intelligent recommendations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshot Section -->
+    <section id="screenshots" style="padding: 6rem 0; background: linear-gradient(180deg, var(--macchiato-surface1), var(--macchiato-surface0)); position: relative; overflow: hidden;">
+      <div class="container" style="position: relative;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <h2 class="animate-on-scroll gradient-text" style="font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; margin-bottom: 1.5rem;">
+            See FactorSphere in Action
+          </h2>
+          <p class="animate-on-scroll" style="font-size: 1.25rem; color: var(--latte-subtext0); max-width: 48rem; margin: 0 auto; line-height: 1.6;">
+            Explore the platform’s features and interface through real screenshots.
+          </p>
+        </div>
+        <div class="screenshots-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+          <div class="screenshot-card animate-on-scroll glass-effect" style="padding: 2rem; border-radius: 1.25rem; background: var(--background); display: flex; flex-direction: column; align-items: center;">
+            <picture>
+              <img src="/img/01.png" data-base="/img/01.png" alt="Home screen" class="screenshot-img" style="width: 100%; border-radius: 0.75rem; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);" />
+            </picture>
+            <h3 style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 600; color: var(--primary);">Home Screen</h3>
+            <p style="color: var(--latte-subtext0); margin-top: 0.5rem; text-align: center;">
+              The welcoming dashboard with quick access to all FactorSphere features.
+            </p>
+          </div>
+          <div class="screenshot-card animate-on-scroll glass-effect" style="padding: 2rem; border-radius: 1.25rem; background: var(--background); display: flex; flex-direction: column; align-items: center;">
+            <picture>
+              <img src="/img/02.png" data-base="/img/02.png" alt="Search box" class="screenshot-img" style="width: 100%; border-radius: 0.75rem; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);" />
+            </picture>
+            <h3 style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 600; color: var(--primary);">Search Box</h3>
+            <p style="color: var(--latte-subtext0); margin-top: 0.5rem; text-align: center;">
+              Instantly find journals by name, field, or impact factor using the smart search.
+            </p>
+          </div>
+          <div class="screenshot-card animate-on-scroll glass-effect" style="padding: 2rem; border-radius: 1.25rem; background: var(--background); display: flex; flex-direction: column; align-items: center;">
+            <picture>
+              <img src="/img/03.png" data-base="/img/03.png" alt="Complete list of journals" class="screenshot-img" style="width: 100%; border-radius: 0.75rem; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);" />
+            </picture>
+            <h3 style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 600; color: var(--primary);">Complete List of Journals</h3>
+            <p style="color: var(--latte-subtext0); margin-top: 0.5rem; text-align: center;">
+              Browse the full, open-access database of indexed journals with transparent metrics.
+            </p>
+          </div>
+          <div class="screenshot-card animate-on-scroll glass-effect" style="padding: 2rem; border-radius: 1.25rem; background: var(--background); display: flex; flex-direction: column; align-items: center;">
+            <picture>
+              <img src="/img/04.png" data-base="/img/04.png" alt="AI journal recommender" class="screenshot-img" style="width: 100%; border-radius: 0.75rem; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);" />
+            </picture>
+            <h3 style="margin-top: 1.25rem; font-size: 1.15rem; font-weight: 600; color: var(--primary);">AI Journal Recommender</h3>
+            <p style="color: var(--latte-subtext0); margin-top: 0.5rem; text-align: center;">
+              Get personalized journal suggestions powered by advanced AI and semantic search.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 6rem 0; background: linear-gradient(180deg, var(--macchiato-surface0), var(--background)); position: relative; overflow: hidden;">
+      <div class="container" style="position: relative;">
+        <div style="text-align: center; margin-bottom: 5rem;">
+          <h2 class="animate-on-scroll gradient-text" style="font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 700; margin-bottom: 2rem; line-height: 1.1;">
+            Join the Revolution
+          </h2>
+          
+          <p class="animate-on-scroll" style="font-size: clamp(1.125rem, 4vw, 1.5rem); color: var(--latte-subtext0); max-width: 64rem; margin: 0 auto 3rem; line-height: 1.6;">
+            Be part of the movement that's democratizing academic research. 
+            Help us build a more transparent, accessible, and fair future for scientific publishing.
+          </p>
+
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: 4rem;">
+            <a href="https://factorsphere.github.io/core" target="_blank" class="btn btn-primary cta-button" style="display: flex; align-items: center; gap: 0.75rem; padding: 1.5rem 3rem; font-size: 1.25rem; font-weight: 600; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); transform: translateY(0); transition: all 0.3s ease;">
+              Start Exploring Now
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            
+            <a href="https://github.com/FactorSphere/core" target="_blank" class="btn btn-outline cta-outline-button" style="display: flex; align-items: center; gap: 0.75rem; padding: 1.5rem 3rem; font-size: 1.25rem; font-weight: 600; border-radius: 1rem; border: 2px solid rgba(30, 102, 245, 0.3); transition: all 0.3s ease;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--macchiato-surface0); border-top: 1px solid var(--border); padding: 3rem 0;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+          <div style="grid-column: span 2;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;" class="gradient-text">
+              FactorSphere
+            </h3>
+            <p style="color: var(--latte-subtext0); margin-bottom: 1.5rem; line-height: 1.6;">
+              Democratizing academic journal rankings through transparent, community-driven metrics. 
+              Built by a tech-nerd, for researchers.
+            </p>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <a href="https://github.com/FactorSphere/core" target="_blank" class="footer-link" style="display: flex; align-items: center; gap: 0.5rem; color: var(--latte-subtext0); text-decoration: none; transition: color 0.3s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://factorsphere.github.io/core" target="_blank" class="footer-link" style="display: flex; align-items: center; gap: 0.5rem; color: var(--latte-subtext0); text-decoration: none; transition: color 0.3s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>Launch App</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding-top: 2rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--latte-subtext0); font-size: 0.875rem;">
+            <span>Made with</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span>by</span>
+            <a href="https://github.com/REXFEDEC" target="_blank" class="footer-link" style="color: var(--primary); text-decoration: none;">
+              @REXFEDEC
+            </a>
+          </div>
+          
+          <div style="color: var(--latte-subtext0); font-size: 0.875rem;">
+            © 2025 FactorSphere. Licensed under MIT License.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen" style="position:fixed;z-index:9999;inset:0;display:flex;align-items:center;justify-content:center;background:var(--background);color:var(--foreground);transition:opacity 0.5s;opacity:1;">
+      <div style="text-align:center;">
+        <div id="splash-mainline" style="font-size:2rem;font-weight:600;line-height:1.3;opacity:0;transition:opacity 0.7s;">
+          A little <span style="color:var(--primary);font-weight:700;">style</span> before you <span style="color:var(--primary);font-weight:700;">steer</span>
+        </div>
+        <div id="splash-welcome" style="font-size:1.5rem;font-weight:700;margin-top:1.5rem;opacity:0;transition:opacity 0.7s;">
+          Welcome to <span class="gradient-text" style="font-weight:800;">FactorSphere</span> :D
+        </div>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>

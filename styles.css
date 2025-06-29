@@ -1,0 +1,333 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Catppuccin color definitions */
+:root {
+  /* Catppuccin Latte (Light theme) */
+  --latte-rosewater: rgb(220, 138, 120);
+  --latte-flamingo: rgb(221, 120, 120);
+  --latte-pink: rgb(234, 118, 203);
+  --latte-mauve: rgb(136, 57, 239);
+  --latte-red: rgb(210, 15, 57);
+  --latte-maroon: rgb(230, 69, 83);
+  --latte-peach: rgb(254, 100, 11);
+  --latte-yellow: rgb(223, 142, 29);
+  --latte-green: rgb(64, 160, 43);
+  --latte-teal: rgb(23, 146, 153);
+  --latte-sky: rgb(4, 165, 229);
+  --latte-sapphire: rgb(32, 159, 181);
+  --latte-blue: rgb(30, 102, 245);
+  --latte-lavender: rgb(114, 135, 253);
+  --latte-text: rgb(76, 79, 105);
+  --latte-subtext1: rgb(92, 95, 119);
+  --latte-subtext0: rgb(108, 111, 133);
+  --latte-overlay2: rgb(124, 127, 147);
+  --latte-overlay1: rgb(140, 143, 161);
+  --latte-overlay0: rgb(156, 160, 176);
+  --latte-surface2: rgb(172, 176, 190);
+  --latte-surface1: rgb(188, 192, 204);
+  --latte-surface0: rgb(204, 208, 218);
+  --latte-base: rgb(239, 241, 245);
+  --latte-mantle: rgb(230, 233, 239);
+  --latte-crust: rgb(220, 224, 232);
+
+  /* Light theme variables */
+  --background: var(--latte-base);
+  --foreground: var(--latte-text);
+  --primary: var(--latte-blue);
+  --secondary: var(--latte-surface1);
+  --accent: var(--latte-lavender);
+  --muted: var(--latte-surface1);
+  --border: var(--latte-surface2);
+}
+
+.dark {
+  /* Catppuccin Macchiato (Dark theme) */
+  --macchiato-rosewater: rgb(244, 219, 214);
+  --macchiato-flamingo: rgb(240, 198, 198);
+  --macchiato-pink: rgb(245, 189, 230);
+  --macchiato-mauve: rgb(198, 160, 246);
+  --macchiato-red: rgb(237, 135, 150);
+  --macchiato-maroon: rgb(238, 153, 160);
+  --macchiato-peach: rgb(245, 169, 127);
+  --macchiato-yellow: rgb(238, 212, 159);
+  --macchiato-green: rgb(166, 218, 149);
+  --macchiato-teal: rgb(139, 213, 202);
+  --macchiato-sky: rgb(145, 215, 227);
+  --macchiato-sapphire: rgb(125, 196, 228);
+  --macchiato-blue: rgb(138, 173, 244);
+  --macchiato-lavender: rgb(183, 189, 248);
+  --macchiato-text: rgb(202, 211, 245);
+  --macchiato-subtext1: rgb(184, 192, 224);
+  --macchiato-subtext0: rgb(165, 173, 203);
+  --macchiato-overlay2: rgb(147, 154, 183);
+  --macchiato-overlay1: rgb(128, 135, 162);
+  --macchiato-overlay0: rgb(110, 115, 141);
+  --macchiato-surface2: rgb(91, 96, 120);
+  --macchiato-surface1: rgb(73, 77, 100);
+  --macchiato-surface0: rgb(54, 58, 79);
+  --macchiato-base: rgb(36, 39, 58);
+  --macchiato-mantle: rgb(30, 32, 48);
+  --macchiato-crust: rgb(24, 25, 38);
+
+  /* Dark theme variables */
+  --background: var(--macchiato-base);
+  --foreground: var(--macchiato-text);
+  --primary: var(--macchiato-blue);
+  --secondary: var(--macchiato-surface1);
+  --accent: var(--macchiato-lavender);
+  --muted: var(--macchiato-surface1);
+  --border: var(--macchiato-surface2);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--latte-blue), var(--latte-lavender));
+  color: white;
+}
+
+.dark .btn-primary {
+  background: linear-gradient(135deg, var(--macchiato-blue), var(--macchiato-lavender));
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--primary);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .btn:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+
+/* Glass effect */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-on-scroll-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-on-scroll-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--latte-blue), var(--latte-lavender));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, var(--macchiato-blue), var(--macchiato-lavender));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Section spacing */
+section {
+  padding: 6rem 0;
+}
+
+/* System Architecture Card */
+.system-architecture-card {
+  background: rgba(204, 208, 218, 0.5); /* latte-surface0 for light mode */
+}
+
+.dark .system-architecture-card {
+  background: rgba(54, 58, 79, 0.5);    /* macchiato-surface0 for dark mode */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  section {
+    padding: 4rem 0;
+  }
+  
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  /* Add this to improve Hero Section responsiveness */
+  .hero-section {
+    min-height: unset !important;
+    padding: 3rem 0 !important;
+    flex-direction: column !important;
+  }
+  .hero-section .container {
+    padding: 0 0.5rem !important;
+  }
+  .hero-section h1 {
+    font-size: 2rem !important;
+  }
+  .hero-section p {
+    font-size: 1rem !important;
+  }
+  .hero-section .btn,
+  .hero-section .btn-outline {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+  .hero-section .glass-effect {
+    font-size: 0.95rem !important;
+    padding: 0.4rem 0.8rem !important;
+  }
+  .hero-section [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Responsive Navigation Bar */
+  nav .container > div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    padding: 0.5rem 0 !important;
+  }
+  nav .container > div > div:first-child {
+    justify-content: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+  nav .container > div > div:last-child {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+  nav a,
+  nav button {
+    font-size: 1rem !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  nav .btn,
+  nav .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Optional: For very small screens */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.3rem !important;
+  }
+}
