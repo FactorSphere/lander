@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FactorSphere Pricing</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Theme -->
+  <script>
+    // Prevent flash of wrong theme
+    (function() {
+      const theme = localStorage.getItem('factorsphere-theme') || 'dark';
+      if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen bg-background text-foreground overflow-x-hidden">
+  <!-- Navigation (copied from index.html, with Pricing added) -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-opacity-20" style="border-color: var(--border);">
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 0;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <img src="/img/logo_cr.png" alt="FactorSphere Logo" style="width:2.2rem;height:2.2rem;border-radius:50%;vertical-align:middle;">
+          <span style="font-size: 1.5rem; font-weight: 700;" class="gradient-text">FactorSphere</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <a href="index.html#problem" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Problem</a>
+          <a href="index.html#solution" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Solution</a>
+          <a href="index.html#features" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Features</a>
+          <a href="index.html#technology" style="color: var(--foreground); text-decoration: none; transition: color 0.3s ease;">Tech</a>
+          <a href="pricing.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Pricing</a>
+          <button id="theme-toggle" class="btn" style="padding: 0.5rem; background: transparent; border: 1px solid var(--border);">
+            <span id="theme-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+          <a href="https://factorsphere.pages.dev/" target="_blank" class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem;">
+            Launch App
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding: 6rem 0 2rem 0;">
+    <h1 class="gradient-text" style="font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: 2rem;">
+      Pricing Plans
+    </h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;">
+      <div class="glass-effect" style="flex:1 1 260px; min-width:260px; max-width:320px; padding:2rem; border-radius:1.25rem; text-align:center; box-shadow:0 4px 24px 0 rgba(30,102,245,0.08);">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Basic</h2>
+        <p style="margin: 1rem 0; color: var(--latte-subtext0);">Unlock the power of open science. Includes unlimited journal browsing, infinite AI recommendations, and access to the secret owl council.</p>
+        <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;">$0</div>
+        <div style="color: var(--primary); font-weight: 600;">Forever. No credit card. No nonsense.</div>
+      </div>
+      <div class="glass-effect" style="flex:1 1 260px; min-width:260px; max-width:320px; padding:2rem; border-radius:1.25rem; text-align:center; box-shadow:0 4px 24px 0 rgba(114,135,253,0.08);">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Pro</h2>
+        <p style="margin: 1rem 0; color: var(--latte-subtext0);">All Basic features plus: 2x faster AI, unlimited virtual high-fives, and the ability to say "I'm a Pro user" at parties.</p>
+        <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;">$0</div>
+        <div style="color: var(--primary); font-weight: 600;">Yes, still free. Seriously.</div>
+      </div>
+      <div class="glass-effect" style="flex:1 1 260px; min-width:260px; max-width:320px; padding:2rem; border-radius:1.25rem; text-align:center; box-shadow:0 4px 24px 0 rgba(220,138,120,0.08);">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Enterprise</h2>
+        <p style="margin: 1rem 0; color: var(--latte-subtext0);">For organizations: Includes everything, plus unlimited team owl mascots and a direct line to the FactorSphere "CEO" (probably an owl).</p>
+        <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;">$0</div>
+        <div style="color: var(--primary); font-weight: 600;">Contact us for a free quote. (It’s $0.)</div>
+      </div>
+    </div>
+
+    <!-- Attractive Buy Me a Coffee Section -->
+    <section class="glass-effect" style="max-width: 480px; margin: 3rem auto 0 auto; padding: 2.5rem 2rem 2rem 2rem; border-radius: 1.5rem; box-shadow: 0 8px 32px 0 rgba(30,102,245,0.10); text-align: center; position: relative; overflow: visible;">
+      <div style="position: absolute; top: -2.5rem; left: 50%; transform: translateX(-50%); pointer-events: none;">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="38" fill="url(#bmc-gradient-unique)" fill-opacity="0.13"/>
+          <defs>
+            <linearGradient id="bmc-gradient-unique" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#eab308"/>
+              <stop offset="1" stop-color="#fbbf24"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <img src="/img/favicon.svg" alt="Coffee" style="width: 2.5rem; height: 2.5rem; position: absolute; top: 1.1rem; left: 50%; transform: translateX(-50%);" />
+      </div>
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.5rem;">
+        <span style="font-size:1.7rem;">☕</span> Buy Me a Coffee
+      </h2>
+      <p style="font-size: 1.1rem; color: var(--latte-subtext0); margin-bottom: 1.5rem;">
+        If FactorSphere made your day brighter, consider fueling the creator with a coffee!
+      </p>
+      <a href="https://coff.ee/sameermann" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 1.2rem; box-shadow:0 2px 12px 0 rgba(234,179,8,0.15);">
+        <span>Buy Me a Coffee</span>
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 1-12 0"/><path d="M6 8V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="M6 8h12"/><path d="M4 8v2a8 8 0 0 0 16 0V8"/></svg>
+      </a>
+      <div style="margin-bottom: 0.5rem;">
+        <img src="/img/bmc_qr.png" alt="Buy Me a Coffee QR" style="width: 130px; border-radius: 0.75rem; box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10); margin: 0.5rem auto; border: 2px solid var(--primary);" />
+      </div>
+      <div style="font-size: 1rem; color: var(--latte-subtext1); margin-bottom: 0.5rem;">
+        Or scan the QR code!
+      </div>
+      <div style="font-size: 1.05rem; color: var(--primary); margin-top: 0.5rem; font-weight:600;">
+        <em>well it fluctuates between caffeine and completing daily protein.</em>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
